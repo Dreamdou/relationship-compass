@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#122c2a">
+  <meta name="description" content="成人亲密关系偏好、沟通方式与边界探索测评。提交后即时获得简版反馈。">
+  <title>关系偏好与边界探索测评</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23123d38'/%3E%3Cpath d='M32 15 49 32 32 49 15 32Z' fill='none' stroke='%23fff' stroke-width='4'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="返回首页">
+      <span class="brand-mark" aria-hidden="true">◇</span>
+      <span>关系罗盘</span>
+    </a>
+    <span class="privacy-pill"><span aria-hidden="true">●</span> 保密收集</span>
+  </header>
+
+  <main id="main">
+    <section id="welcome-view" class="view hero" aria-labelledby="welcome-title">
+      <div class="hero-copy">
+        <p class="eyebrow">成人关系偏好 · 沟通 · 边界</p>
+        <h1 id="welcome-title">看见你的关系模式，<br>也看见彼此的边界。</h1>
+        <p class="lead">这不是诊断，也不是给人贴标签。它用 104 道陈述，帮助你梳理角色倾向、互动结构、情绪沟通、边界与修复方式。</p>
+        <div class="hero-stats" aria-label="测评信息">
+          <div><strong>104</strong><span>道陈述</span></div>
+          <div><strong>约 18</strong><span>分钟</span></div>
+          <div><strong>26</strong><span>个观察维度</span></div>
+        </div>
+      </div>
+
+      <aside class="start-card" aria-label="开始测评">
+        <h2>开始前请确认</h2>
+        <ul class="check-list">
+          <li>我已年满 18 周岁。</li>
+          <li>我会按“真实的自己”作答，而不是按期待中的形象作答。</li>
+        </ul>
+        <label class="consent-row">
+          <input id="consent" type="checkbox">
+          <span>我已阅读并同意以上说明</span>
+        </label>
+        <button id="start-button" class="primary-button" type="button" disabled>开始测评</button>
+        <button id="resume-button" class="text-button hidden" type="button">继续上次进度</button>
+        <p id="backend-status" class="microcopy">提交后立即显示简版反馈；详细画像将按你留下的联系方式发送。</p>
+      </aside>
+    </section>
+
+    <section id="contact-view" class="view contact-shell hidden" aria-labelledby="contact-title">
+      <div class="contact-intro">
+        <p class="eyebrow">最后一步</p>
+        <h1 id="contact-title">留下接收详细报告的方式</h1>
+        <p>提交成功后，你会立即看到简版反馈。问卷发起者会结合答卷生成更详细的人格画像，并通过下方联系方式发送给你。</p>
+      </div>
+      <form id="contact-form" class="contact-card" novalidate>
+        <label class="field-label" for="display-name">怎么称呼你 <span>选填</span></label>
+        <input id="display-name" class="text-input" type="text" maxlength="40" autocomplete="nickname" placeholder="昵称即可，不必填写真实姓名">
+
+        <label class="field-label" for="contact-kind">接收方式</label>
+        <select id="contact-kind" class="text-input" required>
+          <option value="">请选择</option>
+          <option value="QQ">QQ</option>
+          <option value="微信">微信</option>
+          <option value="邮箱">邮箱</option>
+          <option value="其他">其他</option>
+        </select>
+
+        <label class="field-label" for="contact-value">联系方式</label>
+        <input id="contact-value" class="text-input" type="text" maxlength="120" autocomplete="off" placeholder="请输入QQ号、微信号、邮箱或其他联系方式" required>
+
+        <div class="privacy-box">
+          <h2>隐私与数据使用说明</h2>
+          <p>本次填写内容仅问卷发起者可知，数据仅用于为你生成并发送详细画像报告，不会对外传播。你留下的联系方式仅用于接收报告及与本次报告有关的必要沟通。请勿填写身份证号、住址、单位等无关信息。</p>
+        </div>
+
+        <label class="consent-row">
+          <input id="collection-consent" type="checkbox" required>
+          <span>我已了解上述用途，并同意提交本次答案和联系方式</span>
+        </label>
+        <p id="submit-error" class="form-error hidden" role="alert"></p>
+        <div class="quiz-actions">
+          <button id="contact-back-button" class="secondary-button" type="button">返回检查答案</button>
+          <button id="submit-response-button" class="primary-button" type="submit">保密提交并查看反馈</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="quiz-view" class="view quiz-shell hidden" aria-labelledby="quiz-title">
+      <div class="quiz-header">
+        <div>
+          <p class="eyebrow">关系罗盘 · 自我探索版</p>
+          <h1 id="quiz-title">请选择最接近你真实状态的答案</h1>
+        </div>
+        <button id="save-exit-button" class="ghost-button" type="button">保存并退出</button>
+      </div>
+
+      <div class="progress-wrap">
+        <div class="progress-meta"><span id="progress-label">第 1 / 21 页</span><span id="answer-count">已答 0 / 104</span></div>
+        <div class="progress-track" role="progressbar" aria-label="答题进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+      </div>
+
+      <form id="question-form" novalidate>
+        <div id="questions-container" class="questions-list"></div>
+        <p id="form-error" class="form-error hidden" role="alert">请完成本页全部题目后再继续。</p>
+        <div class="quiz-actions">
+          <button id="prev-button" class="secondary-button" type="button">上一页</button>
+          <button id="next-button" class="primary-button" type="submit">下一页</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="result-view" class="view result-shell hidden" aria-labelledby="result-title">
+      <div class="result-hero">
+        <p class="eyebrow">你的关系罗盘类型</p>
+        <p id="type-code" class="type-code">—</p>
+        <h1 id="result-title">正在生成结果…</h1>
+        <p id="result-summary" class="result-summary"></p>
+        <div class="result-actions">
+          <button id="copy-result-button" class="primary-button" type="button">复制结果摘要</button>
+          <button id="download-result-button" class="secondary-button" type="button">导出个人数据</button>
+        </div>
+      </div>
+
+      <div class="result-grid">
+        <article class="panel">
+          <div class="panel-heading"><div><p class="eyebrow">维度概览</p><h2>你的突出倾向</h2></div><span class="panel-note">0–100</span></div>
+          <div id="score-bars" class="score-bars"></div>
+        </article>
+        <article class="panel">
+          <p class="eyebrow">个性化解读</p>
+          <h2>更适合你的互动方式</h2>
+          <div id="insights" class="insights"></div>
+        </article>
+      </div>
+
+      <article class="panel full-panel">
+        <p class="eyebrow">使用说明</p>
+        <h2>把结果当作沟通起点，而不是结论</h2>
+        <p>分数代表你在当前阶段对某类关系体验的自我认同程度，不代表能力、价值或固定身份。关系中的任何探索都应建立在成年人之间知情、自愿、可撤回的同意上；安全词、事前协商和事后照护比“类型匹配”更重要。详细画像将由问卷发起者通过你留下的联系方式发送。</p>
+      </article>
+
+      <div class="bottom-actions">
+        <button id="restart-button" class="text-button" type="button">清除答案并重新测试</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>关系罗盘 · 即时反馈与保密收集版</span>
+    <span>非医疗或心理诊断工具</span>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="backend.js"></script>
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

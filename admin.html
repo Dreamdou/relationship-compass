@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#122c2a">
+  <meta name="robots" content="noindex,nofollow">
+  <title>关系罗盘 · 发布者后台</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23123d38'/%3E%3Cpath d='M32 15 49 32 32 49 15 32Z' fill='none' stroke='%23fff' stroke-width='4'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+  <header class="topbar admin-topbar">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">◇</span><span>关系罗盘 · 发布者后台</span></a>
+    <button id="logout-button" class="ghost-button hidden" type="button">退出登录</button>
+  </header>
+
+  <main class="admin-main">
+    <section id="login-view" class="login-shell">
+      <div>
+        <p class="eyebrow">仅限问卷发起者</p>
+        <h1>登录查看答卷</h1>
+        <p>填写者无法通过本页面读取任何答卷。后台访问由账号登录和数据库权限共同限制。</p>
+      </div>
+      <form id="login-form" class="contact-card">
+        <label class="field-label" for="admin-email">管理员邮箱</label>
+        <input id="admin-email" class="text-input" type="email" autocomplete="username" required>
+        <label class="field-label" for="admin-password">密码</label>
+        <input id="admin-password" class="text-input" type="password" autocomplete="current-password" required>
+        <p id="login-error" class="form-error hidden" role="alert"></p>
+        <button id="login-button" class="primary-button full-button" type="submit">登录后台</button>
+        <p class="microcopy">管理员账号需要先在 Supabase 后台创建。本页面不提供公开注册。</p>
+      </form>
+    </section>
+
+    <section id="dashboard-view" class="hidden" aria-labelledby="dashboard-title">
+      <div class="dashboard-heading">
+        <div><p class="eyebrow">答卷概览</p><h1 id="dashboard-title">关系画像收集后台</h1><p id="survey-meta" class="dashboard-subtitle"></p></div>
+        <div class="dashboard-actions">
+          <button id="refresh-button" class="secondary-button" type="button">刷新数据</button>
+          <button id="export-button" class="primary-button" type="button">导出 CSV</button>
+        </div>
+      </div>
+
+      <div id="setup-card" class="setup-card hidden">
+        <h2>还差一步即可开放收集</h2>
+        <p>后台已经建立问卷记录。请把下面的问卷编号复制到 <code>config.js</code> 的 <code>surveyId</code> 中，再重新发布网站。</p>
+        <div class="copy-field"><code id="survey-id-value"></code><button id="copy-survey-id" class="ghost-button" type="button">复制编号</button></div>
+      </div>
+
+      <div class="stat-grid">
+        <article class="stat-card"><span>完成答卷</span><strong id="stat-total">0</strong></article>
+        <article class="stat-card"><span>待发送报告</span><strong id="stat-pending">0</strong></article>
+        <article class="stat-card"><span>已发送报告</span><strong id="stat-sent">0</strong></article>
+        <article class="stat-card"><span>主要类型数</span><strong id="stat-types">0</strong></article>
+      </div>
+
+      <div class="dashboard-toolbar">
+        <label class="search-field"><span class="sr-only">搜索</span><input id="search-input" class="text-input" type="search" placeholder="搜索昵称、联系方式或类型"></label>
+        <select id="status-filter" class="text-input compact-select" aria-label="按报告状态筛选">
+          <option value="全部">全部状态</option><option value="待发送">待发送</option><option value="制作中">制作中</option><option value="已发送">已发送</option>
+        </select>
+      </div>
+
+      <p id="dashboard-error" class="form-error hidden" role="alert"></p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>完成时间</th><th>称呼</th><th>联系方式</th><th>类型</th><th>报告状态</th><th>操作</th></tr></thead>
+          <tbody id="response-rows"></tbody>
+        </table>
+        <div id="empty-state" class="empty-state">暂时还没有完成的答卷。</div>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="response-dialog" class="response-dialog">
+    <form method="dialog"><button class="dialog-close" aria-label="关闭">×</button></form>
+    <div id="response-detail"></div>
+  </dialog>
+
+  <script src="config.js"></script>
+  <script src="backend.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
