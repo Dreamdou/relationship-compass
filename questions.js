@@ -1,627 +1,184 @@
-// Generated from the reviewed v2 questionnaire.
-window.QUESTION_BANK = [
-  {
-    "id": "D01",
-    "dimension": "D",
-    "text": "在明确协商的范围内，我享受决定节奏、方向或规则。",
-    "reverse": false
-  },
-  {
-    "id": "S01",
-    "dimension": "S",
-    "text": "面对可信任的人，我会享受主动交出某些选择权。",
-    "reverse": false
-  },
-  {
-    "id": "X01",
-    "dimension": "X",
-    "text": "我的角色会随伴侣、情境或活动而改变。",
-    "reverse": false
-  },
-  {
-    "id": "ST01",
-    "dimension": "ST",
-    "text": "明确的规则、流程或仪式会让我更安心。",
-    "reverse": false
-  },
-  {
-    "id": "SV01",
-    "dimension": "SV",
-    "text": "为对方完成实际任务或照顾细节会让我满足。",
-    "reverse": false
-  },
-  {
-    "id": "CG01",
-    "dimension": "CG",
-    "text": "在成年人之间，我享受以照顾、保护和引导的方式承担主导责任。",
-    "reverse": false
-  },
-  {
-    "id": "CR01",
-    "dimension": "CR",
-    "text": "在成年人之间，我会享受暂时放下责任、被温柔照顾的状态。",
-    "reverse": false
-  },
-  {
-    "id": "BR01",
-    "dimension": "BR",
-    "text": "我喜欢用玩笑、顶嘴或小挑战制造互动张力。",
-    "reverse": false
-  },
-  {
-    "id": "BT01",
-    "dimension": "BT",
-    "text": "我享受冷静、坚定地接住对方协商好的挑战。",
-    "reverse": false
-  },
-  {
-    "id": "TG01",
-    "dimension": "TG",
-    "text": "在获得明确同意后，我会享受设计和给予不同感官刺激。",
-    "reverse": false
-  },
-  {
-    "id": "TR01",
-    "dimension": "TR",
-    "text": "我会享受在可控范围内接受明显的感官刺激。",
-    "reverse": false
-  },
-  {
-    "id": "BD01",
-    "dimension": "BD",
-    "text": "在充分协商和安全准备下，行动受限的感觉会吸引我。",
-    "reverse": false
-  },
-  {
-    "id": "PV01",
-    "dimension": "PV",
-    "text": "称谓、语气、命令或象征性身份会明显影响我的投入感。",
-    "reverse": false
-  },
-  {
-    "id": "PET01",
-    "dimension": "PET",
-    "text": "在成年人之间，动物化角色或宠物身份会吸引我。",
-    "reverse": false
-  },
-  {
-    "id": "AC01",
-    "dimension": "AC",
-    "text": "互动结束后的安抚、陪伴或复盘对我很重要。",
-    "reverse": false
-  },
-  {
-    "id": "NV01",
-    "dimension": "NV",
-    "text": "在边界清楚时，尝试新主题会让我兴奋。",
-    "reverse": false
-  },
-  {
-    "id": "TP01",
-    "dimension": "TP",
-    "text": "在分享高度私密的信息前，我需要观察对方一段时间的稳定表现。",
-    "reverse": false
-  },
-  {
-    "id": "CD01",
-    "dimension": "CD",
-    "text": "我更喜欢把需求和边界直接说清楚，而不是让对方猜。",
-    "reverse": false
-  },
-  {
-    "id": "EA01",
-    "dimension": "EA",
-    "text": "我通常能说出自己紧张 兴奋 犹豫或失落的程度。",
-    "reverse": false
-  },
-  {
-    "id": "CF01",
-    "dimension": "CF",
-    "text": "发生误解后，我愿意在双方平静时复盘具体发生了什么。",
-    "reverse": false
-  },
-  {
-    "id": "AU01",
-    "dimension": "AU",
-    "text": "即使关系亲密，我仍需要独立时间和个人决定空间。",
-    "reverse": false
-  },
-  {
-    "id": "RS01",
-    "dimension": "RS",
-    "text": "明确表达重视和认可会显著提升我的安全感。",
-    "reverse": false
-  },
-  {
-    "id": "PB01",
-    "dimension": "PB",
-    "text": "分享聊天记录 照片或测试结果前必须再次征得我的同意。",
-    "reverse": false
-  },
-  {
-    "id": "EX01",
-    "dimension": "EX",
-    "text": "我需要明确知道双方对排他性和其他关系的约定。",
-    "reverse": false
-  },
-  {
-    "id": "PS01",
-    "dimension": "PS",
-    "text": "提前知道大致流程和退出方式能让我更投入。",
-    "reverse": false
-  },
-  {
-    "id": "RF01",
-    "dimension": "RF",
-    "text": "我愿意根据新的体验修改对自己的标签和判断。",
-    "reverse": false
-  },
-  {
-    "id": "D02",
-    "dimension": "D",
-    "text": "带领互动并照看整体安全，会让我感到投入。",
-    "reverse": false
-  },
-  {
-    "id": "S02",
-    "dimension": "S",
-    "text": "清楚而尊重的指令会增加我的投入感。",
-    "reverse": false
-  },
-  {
-    "id": "X02",
-    "dimension": "X",
-    "text": "我既可能享受发出指令，也可能享受接受指令。",
-    "reverse": false
-  },
-  {
-    "id": "ST02",
-    "dimension": "ST",
-    "text": "我喜欢提前知道什么行为会得到回应或反馈。",
-    "reverse": false
-  },
-  {
-    "id": "SV02",
-    "dimension": "SV",
-    "text": "我重视自己的付出被看见、被感谢或被认可。",
-    "reverse": false
-  },
-  {
-    "id": "CG02",
-    "dimension": "CG",
-    "text": "我愿意通过稳定的日常关心帮助对方获得安全感。",
-    "reverse": false
-  },
-  {
-    "id": "CR02",
-    "dimension": "CR",
-    "text": "安全、玩心和被允许示弱对我很重要。",
-    "reverse": false
-  },
-  {
-    "id": "BR02",
-    "dimension": "BR",
-    "text": "对方温和而坚定地回应我的挑战，会让我更投入。",
-    "reverse": false
-  },
-  {
-    "id": "BT02",
-    "dimension": "BT",
-    "text": "我能在对方真实不适时停止把反抗理解成游戏。",
-    "reverse": false
-  },
-  {
-    "id": "TG02",
-    "dimension": "TG",
-    "text": "观察对方的语言和非语言反馈对我很重要。",
-    "reverse": false
-  },
-  {
-    "id": "TR02",
-    "dimension": "TR",
-    "text": "我能够区分喜欢、可以承受和不想继续。",
-    "reverse": false
-  },
-  {
-    "id": "BD02",
-    "dimension": "BD",
-    "text": "我对绳、束缚工具或固定姿势等主题感兴趣。",
-    "reverse": false
-  },
-  {
-    "id": "PV02",
-    "dimension": "PV",
-    "text": "赞美、认可或被准确理解比单纯强度更重要。",
-    "reverse": false
-  },
-  {
-    "id": "PET02",
-    "dimension": "PET",
-    "text": "项圈、称呼、动作或训练式游戏能增强我的角色感。",
-    "reverse": false
-  },
-  {
-    "id": "AC02",
-    "dimension": "AC",
-    "text": "我能具体说出自己希望得到或提供的事后照护。",
-    "reverse": false
-  },
-  {
-    "id": "NV02",
-    "dimension": "NV",
-    "text": "我愿意先学习风险，再决定是否尝试。",
-    "reverse": false
-  },
-  {
-    "id": "TP02",
-    "dimension": "TP",
-    "text": "清楚的承诺和兑现记录比一时的强烈感觉更能让我信任。",
-    "reverse": false
-  },
-  {
-    "id": "CD02",
-    "dimension": "CD",
-    "text": "遇到不确定之处时，我愿意主动提问并确认。",
-    "reverse": false
-  },
-  {
-    "id": "EA02",
-    "dimension": "EA",
-    "text": "当状态变化时，我愿意及时告诉对方。",
-    "reverse": false
-  },
-  {
-    "id": "CF02",
-    "dimension": "CF",
-    "text": "道歉对我来说应包含理解影响和调整行为，而不只是说对不起。",
-    "reverse": false
-  },
-  {
-    "id": "AU02",
-    "dimension": "AU",
-    "text": "我希望重要关系尊重我的工作 朋友 兴趣和生活安排。",
-    "reverse": false
-  },
-  {
-    "id": "RS02",
-    "dimension": "RS",
-    "text": "关系或互动结束后，我希望对方确认彼此状态。",
-    "reverse": false
-  },
-  {
-    "id": "PB02",
-    "dimension": "PB",
-    "text": "我希望提前约定哪些称呼和身份可以在公开场景使用。",
-    "reverse": false
-  },
-  {
-    "id": "EX02",
-    "dimension": "EX",
-    "text": "如果约定发生变化，我希望在行动前而不是事后得知。",
-    "reverse": false
-  },
-  {
-    "id": "PS02",
-    "dimension": "PS",
-    "text": "即兴变化可以接受，但我希望变化不越过已协商范围。",
-    "reverse": false
-  },
-  {
-    "id": "RF02",
-    "dimension": "RF",
-    "text": "我能承认某件原本感兴趣的事实际体验后并不适合我。",
-    "reverse": false
-  },
-  {
-    "id": "D03",
-    "dimension": "D",
-    "text": "即使对方希望我主导，我也愿意在信息不足时先暂停。",
-    "reverse": false
-  },
-  {
-    "id": "S03",
-    "dimension": "S",
-    "text": "即使处于顺从角色，我也能直接表达拒绝或要求暂停。",
-    "reverse": false
-  },
-  {
-    "id": "X03",
-    "dimension": "X",
-    "text": "只要事先说清楚，我能接受一次互动中角色发生变化。",
-    "reverse": false
-  },
-  {
-    "id": "ST03",
-    "dimension": "ST",
-    "text": "书面约定或清单能帮助我表达真实边界。",
-    "reverse": false
-  },
-  {
-    "id": "SV03",
-    "dimension": "SV",
-    "text": "重复性的服务或礼仪也可能让我感到投入。",
-    "reverse": false
-  },
-  {
-    "id": "CG03",
-    "dimension": "CG",
-    "text": "我能在照护角色中尊重对方的独立决定和退出权。",
-    "reverse": false
-  },
-  {
-    "id": "CR03",
-    "dimension": "CR",
-    "text": "我喜欢通过称谓、日常仪式或奖励感受到关心。",
-    "reverse": false
-  },
-  {
-    "id": "BR03",
-    "dimension": "BR",
-    "text": "我能区分协商好的调皮互动和真实拒绝。",
-    "reverse": false
-  },
-  {
-    "id": "BT03",
-    "dimension": "BT",
-    "text": "我喜欢通过幽默、规则或任务回应调皮行为。",
-    "reverse": false
-  },
-  {
-    "id": "TG03",
-    "dimension": "TG",
-    "text": "我愿意从低强度开始，并根据反馈调整。",
-    "reverse": false
-  },
-  {
-    "id": "TR03",
-    "dimension": "TR",
-    "text": "强度逐步增加比突然升级更适合我。",
-    "reverse": false
-  },
-  {
-    "id": "BD03",
-    "dimension": "BD",
-    "text": "我需要随时可用的停止方式和快速解除方案。",
-    "reverse": false
-  },
-  {
-    "id": "PV03",
-    "dimension": "PV",
-    "text": "只有提前定义过的敏感用语，我才愿意纳入互动。",
-    "reverse": false
-  },
-  {
-    "id": "PET03",
-    "dimension": "PET",
-    "text": "我愿意说明自己偏好的物种、角色和边界。",
-    "reverse": false
-  },
-  {
-    "id": "AC03",
-    "dimension": "AC",
-    "text": "我希望在数小时或次日再次确认彼此状态。",
-    "reverse": false
-  },
-  {
-    "id": "NV03",
-    "dimension": "NV",
-    "text": "我能接受探索后发现自己并不喜欢。",
-    "reverse": false
-  },
-  {
-    "id": "TP03",
-    "dimension": "TP",
-    "text": "对方怎样处理我的一次拒绝，会显著影响我是否继续靠近。",
-    "reverse": false
-  },
-  {
-    "id": "CD03",
-    "dimension": "CD",
-    "text": "我能够区分拒绝某件事和拒绝某个人。",
-    "reverse": false
-  },
-  {
-    "id": "EA03",
-    "dimension": "EA",
-    "text": "我能说明自己需要安慰 空间 解释还是实际帮助。",
-    "reverse": false
-  },
-  {
-    "id": "CF03",
-    "dimension": "CF",
-    "text": "我可以提出暂停争执，并约定何时重新沟通。",
-    "reverse": false
-  },
-  {
-    "id": "AU03",
-    "dimension": "AU",
-    "text": "我能接受伴侣有不需要向我逐项汇报的私人空间。",
-    "reverse": false
-  },
-  {
-    "id": "RS03",
-    "dimension": "RS",
-    "text": "较长时间不能联系时，提前说明会让我更安心。",
-    "reverse": false
-  },
-  {
-    "id": "PB03",
-    "dimension": "PB",
-    "text": "即使关系结束，双方仍应继续保护彼此隐私。",
-    "reverse": false
-  },
-  {
-    "id": "EX03",
-    "dimension": "EX",
-    "text": "我能讨论嫉妒或不安，而不是把它直接变成限制对方。",
-    "reverse": false
-  },
-  {
-    "id": "PS03",
-    "dimension": "PS",
-    "text": "重要安排临时改变时，我希望得到解释和重新确认。",
-    "reverse": false
-  },
-  {
-    "id": "RF03",
-    "dimension": "RF",
-    "text": "我愿意听取对方对互动影响的反馈，并调整下次做法。",
-    "reverse": false
-  },
-  {
-    "id": "D04",
-    "dimension": "D",
-    "text": "我更自在于始终由别人决定互动走向。",
-    "reverse": true
-  },
-  {
-    "id": "S04",
-    "dimension": "S",
-    "text": "任何带有权力差异的角色都会让我不适。",
-    "reverse": true
-  },
-  {
-    "id": "X04",
-    "dimension": "X",
-    "text": "我只愿长期保持一种固定角色。",
-    "reverse": true
-  },
-  {
-    "id": "ST04",
-    "dimension": "ST",
-    "text": "我更喜欢完全即兴，不希望有固定规则。",
-    "reverse": true
-  },
-  {
-    "id": "SV04",
-    "dimension": "SV",
-    "text": "我不喜欢把日常行动纳入角色互动。",
-    "reverse": true
-  },
-  {
-    "id": "CG04",
-    "dimension": "CG",
-    "text": "我不希望在角色互动中承担任何照护责任。",
-    "reverse": true
-  },
-  {
-    "id": "CR04",
-    "dimension": "CR",
-    "text": "被照顾或被提醒会让我觉得受到冒犯。",
-    "reverse": true
-  },
-  {
-    "id": "BR04",
-    "dimension": "BR",
-    "text": "我更喜欢直接配合，不想通过挑衅获得关注。",
-    "reverse": true
-  },
-  {
-    "id": "BT04",
-    "dimension": "BT",
-    "text": "面对任何形式的顶嘴，我都会失去兴趣。",
-    "reverse": true
-  },
-  {
-    "id": "TG04",
-    "dimension": "TG",
-    "text": "我只对接受刺激感兴趣，不想成为给予的一方。",
-    "reverse": true
-  },
-  {
-    "id": "TR04",
-    "dimension": "TR",
-    "text": "我更喜欢没有明显刺激变化的互动。",
-    "reverse": true
-  },
-  {
-    "id": "BD04",
-    "dimension": "BD",
-    "text": "只要行动被限制，我就很难感到安全。",
-    "reverse": true
-  },
-  {
-    "id": "PV04",
-    "dimension": "PV",
-    "text": "语言和心理氛围对我的体验影响很小。",
-    "reverse": true
-  },
-  {
-    "id": "PET04",
-    "dimension": "PET",
-    "text": "我对任何宠物角色都没有兴趣。",
-    "reverse": true
-  },
-  {
-    "id": "AC04",
-    "dimension": "AC",
-    "text": "互动结束后我通常希望立刻断开，不需要任何确认。",
-    "reverse": true
-  },
-  {
-    "id": "NV04",
-    "dimension": "NV",
-    "text": "我只愿重复已经非常熟悉的互动。",
-    "reverse": true
-  },
-  {
-    "id": "TP04",
-    "dimension": "TP",
-    "text": "只要第一印象很好，我通常会立刻交付大量隐私和信任。",
-    "reverse": true
-  },
-  {
-    "id": "CD04",
-    "dimension": "CD",
-    "text": "即使不舒服，我也常希望对方自己察觉，而不会明确表达。",
-    "reverse": true
-  },
-  {
-    "id": "EA04",
-    "dimension": "EA",
-    "text": "我经常到情绪爆发后才发现自己早已不舒服。",
-    "reverse": true
-  },
-  {
-    "id": "CF04",
-    "dimension": "CF",
-    "text": "出现冲突时，消失 冷处理或让对方着急更容易解决问题。",
-    "reverse": true
-  },
-  {
-    "id": "AU04",
-    "dimension": "AU",
-    "text": "如果对方没有持续回应，我会认为关系一定出了严重问题。",
-    "reverse": true
-  },
-  {
-    "id": "RS04",
-    "dimension": "RS",
-    "text": "我几乎不需要任何语言或行动上的确认。",
-    "reverse": true
-  },
-  {
-    "id": "PB04",
-    "dimension": "PB",
-    "text": "关系足够亲密后，查看设备或账号通常不需要单独许可。",
-    "reverse": true
-  },
-  {
-    "id": "EX04",
-    "dimension": "EX",
-    "text": "只要感情足够好，就不需要具体讨论排他与第三方边界。",
-    "reverse": true
-  },
-  {
-    "id": "PS04",
-    "dimension": "PS",
-    "text": "我不喜欢任何计划，越突然越能让我感到自在。",
-    "reverse": true
-  },
-  {
-    "id": "RF04",
-    "dimension": "RF",
-    "text": "一旦选定角色或边界，就没有必要再复盘或更新。",
-    "reverse": true
-  }
-];
+// Relationship Compass v3: mixed-format adult preference inventory.
+// Each dimension uses trade-off, frequency, comfort and self-description evidence.
+(() => {
+  const sets = {
+    D: [
+      ["bipolar", "遇到双方都犹豫的时刻，我更接近哪一边？", "A 等对方先提出方向", "B 主动定下方向并承担结果"],
+      ["frequency", "过去的亲密互动中，我主动安排节奏、规则或结束方式的频率是？"],
+      ["comfort", "在明确同意下，由我决定对方何时能动、说话、高潮或停下，这种权力感对我的吸引程度是？"],
+      ["agreement", "比起被服务，我更容易因对方认真执行我的要求而兴奋。"],
+    ],
+    S: [
+      ["bipolar", "在可信任的关系里，我更接近哪一边？", "A 保留每一步决定权", "B 主动交出一部分决定权"],
+      ["frequency", "过去的互动中，我明确请求对方命令、约束或支配我的频率是？"],
+      ["comfort", "在可随时叫停的前提下，被规定姿势、称呼、行为或高潮时机，对我的吸引程度是？"],
+      ["agreement", "当对方坚定、可靠且会照顾后果时，服从会让我感到轻松而不是弱小。"],
+    ],
+    X: [
+      ["bipolar", "如果只能选一种长期模式，我更接近哪一边？", "A 固定在熟悉角色", "B 随对象和状态交换角色"],
+      ["frequency", "我在不同关系或同一段关系中切换主导与跟随位置的频率是？"],
+      ["comfort", "和同一个人轮流掌控、服从甚至互换称呼，对我的吸引程度是？"],
+      ["agreement", "角色一旦固定太久，我会想体验相反的位置。"],
+    ],
+    ST: [
+      ["bipolar", "一次期待已久的互动，我更希望？", "A 保留大量即兴空间", "B 事先约定流程、规则与收尾"],
+      ["frequency", "开始前，我主动确认安全词、禁区、时长与事后照护的频率是？"],
+      ["comfort", "固定称谓、礼仪、任务、奖惩和仪式感，对我的吸引程度是？"],
+      ["agreement", "没有讲清规则就开始，会显著降低我的投入感。"],
+    ],
+    SV: [
+      ["bipolar", "表达在乎时，我更自然的方式是？", "A 用语言和陪伴表达", "B 用任务、照料和实际付出表达"],
+      ["frequency", "我主动为对方处理琐事、准备物品或完成指定任务的频率是？"],
+      ["comfort", "把服务、家务、穿戴或日常任务变成带有服从意味的安排，对我的吸引程度是？"],
+      ["agreement", "当我的付出被认真验收和认可时，我会有强烈满足感。"],
+    ],
+    CG: [
+      ["bipolar", "对方脆弱或失控时，我更自然的是？", "A 陪伴但让其自行恢复", "B 接管局面并持续照看"],
+      ["frequency", "我主动检查对方状态、补充水分、安抚或安排恢复的频率是？"],
+      ["comfort", "以保护者、照顾者或成年人的权威角色引导另一名成年人，对我的吸引程度是？"],
+      ["agreement", "我享受那种‘对方可以任性，但安全和后果由我负责’的感觉。"],
+    ],
+    CR: [
+      ["bipolar", "压力很大时，我更想要？", "A 一个人恢复秩序", "B 被可信任的人接管并哄着放松"],
+      ["frequency", "我向亲密对象明确请求拥抱、哄慰、照料或允许示弱的频率是？"],
+      ["comfort", "在成年人之间暂时进入更依赖、撒娇、被照看的状态，对我的吸引程度是？"],
+      ["agreement", "我真正想放下的往往不是理智，而是必须一直懂事和负责的压力。"],
+    ],
+    BR: [
+      ["bipolar", "制造火花时，我更接近？", "A 直接配合并表达喜欢", "B 顶嘴、装不服或故意小挑衅"],
+      ["frequency", "我用玩笑、拖延、挑衅或故意不乖来引起对方注意的频率是？"],
+      ["comfort", "明知会被对方管教，仍用挑衅换取更强烈回应，对我的吸引程度是？"],
+      ["agreement", "如果对方对我的小反抗毫无反应，我会觉得少了很多乐趣。"],
+    ],
+    BT: [
+      ["bipolar", "对方故意挑战规则时，我更可能？", "A 把它当作普通沟通", "B 坚定接住并给出约定好的后果"],
+      ["frequency", "我在确认是游戏而非真实拒绝后，执行约定奖惩的频率是？"],
+      ["comfort", "冷静制服对方的挑衅，让其重新遵守规则，对我的吸引程度是？"],
+      ["agreement", "我能享受对抗感，同时在对方真实不适时立即退出角色。"],
+    ],
+    TG: [
+      ["bipolar", "身体互动中，我更容易投入哪一边？", "A 接收刺激并回应", "B 观察反应并精确给予刺激"],
+      ["frequency", "我主动尝试拍打、抓咬、冷热、蜡烛、震动或疼痛刺激的频率是？"],
+      ["comfort", "在协商范围内让对方疼、发抖、求饶或失去平静，对我的吸引程度是？"],
+      ["agreement", "比起刺激本身，对方诚实而强烈的反应更能让我兴奋。"],
+    ],
+    TR: [
+      ["bipolar", "身体互动中，我更容易投入哪一边？", "A 控制刺激强度", "B 把身体交给对方制造强烈感觉"],
+      ["frequency", "我主动请求拍打、抓咬、冷热、蜡烛、震动或可控疼痛的频率是？"],
+      ["comfort", "在安全范围内被弄疼、留下短暂痕迹或逼近承受边缘，对我的吸引程度是？"],
+      ["agreement", "强烈刺激有时会让我比温柔接触更快进入专注状态。"],
+    ],
+    BD: [
+      ["bipolar", "让我更容易进入状态的是？", "A 可以随时自由移动", "B 被明确限制动作或姿势"],
+      ["frequency", "我在亲密互动中使用或请求绳、铐、眼罩、固定姿势等限制的频率是？"],
+      ["comfort", "在有安全措施时，被捆绑、按住、蒙眼或限制说话，对我的吸引程度是？"],
+      ["agreement", "身体可动空间变小，反而可能让我更专注于感觉和信任。"],
+    ],
+    PV: [
+      ["bipolar", "真正点燃我的通常是？", "A 身体接触本身", "B 语言、身份、羞耻感与心理拉扯"],
+      ["frequency", "我在亲密互动中使用命令、脏话、夸奖、羞辱性称呼或情境对白的频率是？"],
+      ["comfort", "在预先约定词汇后，被说‘下流、贪心、没用’等羞耻话，或这样对别人说，对我的吸引程度是？"],
+      ["agreement", "一句精准的命令、夸奖或羞耻话，可能比单纯触碰更让我失控。"],
+    ],
+    PET: [
+      ["bipolar", "角色扮演时，我更偏向？", "A 保持日常成人身份", "B 进入宠物、主人或非日常身份"],
+      ["frequency", "我使用宠物称呼、项圈、牵引、喂食或动物化动作进行角色扮演的频率是？"],
+      ["comfort", "在成年人之间被当作宠物照料、训练、展示，或扮演其主人，对我的吸引程度是？"],
+      ["agreement", "暂时放下日常身份、用简单本能互动，会让我感到自由。"],
+    ],
+    AC: [
+      ["bipolar", "强烈互动结束后，我更需要？", "A 安静独处自行恢复", "B 拥抱、确认、照料与复盘"],
+      ["frequency", "结束后我主动安排喝水、清洁、拥抱、肯定和次日回访的频率是？"],
+      ["comfort", "在强烈或羞耻体验后坦白脆弱、被温柔接住，对我的舒适程度是？"],
+      ["agreement", "如果结束后对方迅速抽离，即使过程愉快我也可能感到失落。"],
+    ],
+    NV: [
+      ["bipolar", "在安全和信任相近时，我更愿意？", "A 深挖熟悉玩法", "B 尝试没做过的新主题"],
+      ["frequency", "过去一年，我主动提出尝试新角色、新场景或新刺激的频率是？"],
+      ["comfort", "探索公开风险、多人、旁观、暴露、交换或其他高羞耻幻想，对我的吸引程度是？"],
+      ["agreement", "仅仅因为一件事陌生或有点羞耻，并不会自动让我拒绝了解它。"],
+    ],
+    TP: [
+      ["bipolar", "面对很有吸引力的新对象，我更接近？", "A 先凭感觉快速靠近", "B 观察其稳定行为后再交付隐私和控制"],
+      ["frequency", "我在深入前核实对方边界观念、冲突处理方式和安全习惯的频率是？"],
+      ["comfort", "在没有长期了解的情况下，就分享高度私密幻想或进入高强度互动，我的舒适程度是？"],
+      ["agreement", "一个人说得再好听，也比不上他多次尊重小边界所建立的信任。"],
+    ],
+    CD: [
+      ["bipolar", "表达敏感欲望时，我更接近？", "A 用暗示让对方领会", "B 直接说清想要、不要与条件"],
+      ["frequency", "我把‘想试试’‘现实愿意’‘仅限幻想’和‘绝不接受’明确分开的频率是？"],
+      ["comfort", "直白讨论性欲、自慰、高潮、羞耻幻想和硬边界时，我的舒适程度是？"],
+      ["agreement", "即使担心破坏气氛，我也宁愿确认同意而不是靠猜。"],
+    ],
+    EA: [
+      ["bipolar", "情绪复杂时，我更接近？", "A 先压下去等它自行消失", "B 辨认并说出羞耻、嫉妒、兴奋或害怕"],
+      ["frequency", "我能在互动中及时说出‘太快、想继续、需要慢一点、我有点掉状态’的频率是？"],
+      ["comfort", "让对方看到我因欲望、依赖或嫉妒而不体面的那一面，我的舒适程度是？"],
+      ["agreement", "我通常能分辨自己是兴奋、讨好、害怕失去，还是确实愿意。"],
+    ],
+    CF: [
+      ["bipolar", "发生伤害或误解后，我更倾向？", "A 等时间冲淡再恢复正常", "B 复盘事实、影响、责任和下一次调整"],
+      ["frequency", "我在冲突后按约定时间回来继续沟通，而不是消失或翻篇的频率是？"],
+      ["comfort", "承认自己越界、道歉并接受对方暂时不原谅，我的承受程度是？"],
+      ["agreement", "对我来说，真正的安全不是永不出错，而是出错后能够修复。"],
+    ],
+    AU: [
+      ["bipolar", "关系越亲密时，我越需要？", "A 高频共享行踪和决定", "B 保留独处、隐私和不被审问的空间"],
+      ["frequency", "我在恋爱或亲密关系中独立安排朋友、兴趣和个人时间的频率是？"],
+      ["comfort", "在对方失望时仍坚持合理边界或拒绝一次互动，我的舒适程度是？"],
+      ["agreement", "爱一个人并不意味着对方自动拥有我的密码、位置或全部社交信息。"],
+    ],
+    RS: [
+      ["bipolar", "关系出现不确定时，我更需要？", "A 自己消化，等事实自然显现", "B 得到明确回应、承诺或联系安排"],
+      ["frequency", "当对方回复变慢或态度模糊时，我主动确认关系状态的频率是？"],
+      ["comfort", "直接告诉对方‘我需要你现在确认还在乎我’，我的舒适程度是？"],
+      ["agreement", "稳定、可预期的回应比偶尔强烈的浪漫更能让我安心。"],
+    ],
+    PB: [
+      ["bipolar", "面对亲密对象，我更接近？", "A 默认可以共享彼此信息", "B 每类隐私都要单独授权"],
+      ["frequency", "发送截图、照片、录音或讲述私密经历前，我重新征得当事人同意的频率是？"],
+      ["comfort", "对方保存涉及我身体、性偏好或羞耻表达的材料，我的舒适程度是？"],
+      ["agreement", "即便已经看过一次，保存、转发或给第三人看仍需要新的同意。"],
+    ],
+    EX: [
+      ["bipolar", "关系稳定后，我更偏向？", "A 保留与他人发展的自由", "B 明确排他并公开可能影响关系的接触"],
+      ["frequency", "我主动讨论暧昧、约会、性接触及与前任边界的频率是？"],
+      ["comfortReverse", "伴侣在规则内与他人调情、约会或发生性关系，我的可接受程度是？"],
+      ["agreement", "我宁可听到可能让我嫉妒的事实，也不愿靠模糊维持表面和平。"],
+    ],
+    PS: [
+      ["bipolar", "期待一次互动时，我更喜欢？", "A 当场跟着感觉变化", "B 提前知道主题、强度、退出方式和收尾"],
+      ["frequency", "我提前列出愿望、可商量项、禁区与备选方案的频率是？"],
+      ["comfortReverse", "计划临时改变、加入没谈过的元素时，我的适应程度是？"],
+      ["agreement", "事先说得具体不会破坏情趣，反而让我更敢投入。"],
+    ],
+    RF: [
+      ["bipolar", "一次体验不如预期时，我更可能？", "A 归因于自己不适合这种身份", "B 区分对象、情境、做法后再判断"],
+      ["frequency", "我记录或回想哪些环节兴奋、勉强、走神、后悔，并据此调整的频率是？"],
+      ["comfort", "承认曾经喜欢的标签已经不适合，或过去拒绝的偏好现在改变了，我的舒适程度是？"],
+      ["agreement", "我允许自己的欲望矛盾、流动，甚至暂时没有答案。"],
+    ],
+  };
+
+  const scaleMap = {
+    agreement: ["非常不符合", "不太符合", "看情况", "比较符合", "非常符合"],
+    bipolar: ["完全偏 A", "比较偏 A", "两边都可能", "比较偏 B", "完全偏 B"],
+    frequency: ["从未", "很少", "有时", "经常", "几乎总是"],
+    comfort: ["强烈排斥", "不太舒服", "无明显倾向", "有些吸引", "非常吸引"],
+    comfortReverse: ["完全不能接受", "不太能接受", "看具体情况", "比较能接受", "完全能接受"],
+  };
+
+  const dimensions = Object.keys(sets);
+  window.QUESTION_BANK = [0, 1, 2, 3].flatMap((round) => dimensions.map((dimension) => {
+    const [kind, text, left = "", right = ""] = sets[dimension][round];
+    return {
+      id: `${dimension}${String(round + 1).padStart(2, "0")}`,
+      dimension,
+      kind,
+      text,
+      detail: left && right ? `${left}　｜　${right}` : "",
+      labels: scaleMap[kind],
+      reverse: kind === "comfortReverse",
+    };
+  }));
+})();

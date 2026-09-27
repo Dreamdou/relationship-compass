@@ -3,16 +3,10 @@
 
   const CONFIG = {
     questionsPerPage: 5,
-    storageKey: "relationship-compass-v1",
+    storageKey: "relationship-compass-v3",
   };
 
-  const SCALE = [
-    [1, "非常不符合"],
-    [2, "比较不符合"],
-    [3, "不确定 / 看情况"],
-    [4, "比较符合"],
-    [5, "非常符合"],
-  ];
+  const DEFAULT_SCALE = ["非常不符合", "不太符合", "看情况", "比较符合", "非常符合"];
 
   const DIMENSIONS = {
     D: ["引导与承担", "你较愿意提出方向、承担决策，并为过程负责。"],
@@ -66,6 +60,17 @@
       M: ["混合", "你既需要联结，也需要独立恢复空间。"],
     },
   };
+
+  const RADAR_AXES = [
+    ["主导", ["D", "BT", "TG"]],
+    ["交付", ["S", "TR", "CR"]],
+    ["结构", ["ST", "PS", "TP"]],
+    ["探索", ["NV", "X", "RF"]],
+    ["心理张力", ["PV", "BR", "PET"]],
+    ["照护联结", ["CG", "AC", "RS"]],
+    ["自主边界", ["AU", "PB", "CD"]],
+    ["感官强度", ["TG", "TR", "BD"]],
+  ];
 
   const questions = Array.isArray(window.QUESTION_BANK) ? window.QUESTION_BANK : [];
   let state = loadState();
@@ -260,11 +265,12 @@
       const card = document.createElement("fieldset");
       card.className = "question-card";
       const legend = document.createElement("legend");
-      legend.innerHTML = `<span class="question-number">第 ${globalIndex + 1} 题</span><span class="question-text">${escapeHtml(question.text)}</span>`;
+      legend.innerHTML = `<span class="question-number">第 ${globalIndex + 1} 题</span><span class="question-text">${escapeHtml(question.text)}</span>${question.detail ? `<span class="question-detail">${escapeHtml(question.detail)}</span>` : ""}`;
       card.appendChild(legend);
       const scale = document.createElement("div");
       scale.className = "scale";
-      SCALE.forEach(([value, label]) => {
+      (question.labels || DEFAULT_SCALE).forEach((label, labelIndex) => {
+        const value = labelIndex + 1;
         const option = document.createElement("label");
         option.className = "scale-option";
         const checked = Number(state.answers[question.id]) === value ? " checked" : "";
@@ -328,28 +334,33 @@
     const scores = {};
     Object.entries(buckets).forEach(([dimension, values]) => {
       const average = values.reduce((sum, value) => sum + value, 0) / values.length;
-      scores[dimension] = Math.round((average - 1) * 25);
+      scores[dimension] = Math.round(((average - 1) * 2.5) * 10) / 10;
     });
 
-    const role = scores.D - scores.S >= 15 ? "L"
-      : scores.S - scores.D >= 15 ? "F"
-      : scores.X >= 65 || (Math.abs(scores.D - scores.S) < 15 && Math.max(scores.D, scores.S) >= 50) ? "X" : "C";
-    const structure = scores.ST >= 65 ? "S" : scores.NV >= 65 && scores.ST < 55 ? "O" : "A";
+    const role = scores.D - scores.S >= 1.5 ? "L"
+      : scores.S - scores.D >= 1.5 ? "F"
+      : scores.X >= 6.5 || (Math.abs(scores.D - scores.S) < 1.5 && Math.max(scores.D, scores.S) >= 5) ? "X" : "C";
+    const structure = scores.ST >= 6.5 ? "S" : scores.NV >= 6.5 && scores.ST < 5.5 ? "O" : "A";
     const playful = average(scores.BR, scores.BT);
     const caring = average(scores.CG, scores.CR, scores.AC);
-    const tone = playful >= 65 && playful > caring ? "P" : caring >= 65 ? "G" : "B";
+    const tone = playful >= 6.5 && playful > caring ? "P" : caring >= 6.5 ? "G" : "B";
     const connected = average(scores.RS, scores.AC);
-    const connection = connected >= 65 && scores.AU < 65 ? "B" : scores.AU >= 70 && scores.RS < 55 ? "I" : "M";
+    const connection = connected >= 6.5 && scores.AU < 6.5 ? "B" : scores.AU >= 7 && scores.RS < 5.5 ? "I" : "M";
     const code = `${role}${structure}${tone}${connection}`;
     const parts = [
       TYPE_PARTS.role[role], TYPE_PARTS.structure[structure], TYPE_PARTS.tone[tone], TYPE_PARTS.connection[connection],
     ];
+    const top = Object.entries(scores).sort((a, b) => b[1] - a[1]).slice(0, 8);
+    const strongest = top.slice(0, 3).map(([key]) => DIMENSIONS[key][0]);
+    const tagline = buildTagline(role, structure, tone, connection);
+    const portrait = buildPortrait({ role, structure, tone, connection, scores, strongest });
     return {
       code,
       name: parts.map((part) => part[0]).join(" · "),
-      summary: parts.map((part) => part[1]).join(" "),
+      tagline,
+      summary: portrait,
       scores,
-      top: Object.entries(scores).sort((a, b) => b[1] - a[1]).slice(0, 8),
+      top,
     };
   }
 
@@ -357,7 +368,9 @@
     const result = calculateResult();
     $("#type-code").textContent = result.code;
     $("#result-title").textContent = result.name;
+    $("#result-tagline").textContent = result.tagline;
     $("#result-summary").textContent = result.summary;
+    renderRadar(result.scores);
     renderScoreBars(result.top);
     renderInsights(result);
     showView("result-view");
@@ -368,13 +381,41 @@
     const container = $("#score-bars");
     container.innerHTML = topScores.map(([key, score]) => `
       <div class="score-row">
-        <div class="score-row-top"><span>${DIMENSIONS[key][0]}</span><strong>${score}</strong></div>
-        <div class="score-track"><div class="score-fill" style="width:${score}%"></div></div>
+        <div class="score-row-top"><span>${DIMENSIONS[key][0]}</span><strong>${score.toFixed(1)} / 10</strong></div>
+        <div class="score-track"><div class="score-fill" style="width:${score * 10}%"></div></div>
       </div>`).join("");
   }
 
+  function renderRadar(scores) {
+    const size = 360;
+    const center = size / 2;
+    const radius = 120;
+    const axes = RADAR_AXES.map(([label, keys]) => ({
+      label,
+      value: average(...keys.map((key) => scores[key] || 0)),
+    }));
+    const point = (index, value, extra = 0) => {
+      const angle = -Math.PI / 2 + (Math.PI * 2 * index / axes.length);
+      const distance = radius * value / 10 + extra;
+      return [center + Math.cos(angle) * distance, center + Math.sin(angle) * distance];
+    };
+    const rings = [2.5, 5, 7.5, 10].map((level) =>
+      `<polygon points="${axes.map((_, i) => point(i, level).join(",")).join(" ")}" />`
+    ).join("");
+    const axisLines = axes.map((_, i) => {
+      const [x, y] = point(i, 10);
+      return `<line x1="${center}" y1="${center}" x2="${x}" y2="${y}" />`;
+    }).join("");
+    const dataPoints = axes.map((axis, i) => point(i, axis.value).join(",")).join(" ");
+    const labels = axes.map((axis, i) => {
+      const [x, y] = point(i, 10, 28);
+      return `<text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="middle">${axis.label}<tspan x="${x}" dy="15">${axis.value.toFixed(1)}</tspan></text>`;
+    }).join("");
+    $("#radar-chart").innerHTML = `<svg viewBox="0 0 ${size} ${size}" role="img" aria-label="八项核心倾向雷达图"><g class="radar-grid">${rings}${axisLines}</g><polygon class="radar-area" points="${dataPoints}"/><g class="radar-labels">${labels}</g></svg>`;
+  }
+
   function renderInsights(result) {
-    const topThree = result.top.slice(0, 3).map(([key]) => ({
+    const topThree = result.top.slice(0, 2).map(([key]) => ({
       title: DIMENSIONS[key][0],
       text: DIMENSIONS[key][1],
     }));
@@ -384,14 +425,34 @@
     const repairTip = result.scores.CF < 50
       ? { title: "预先约定修复窗口", text: "分歧升级时先暂停，并约定具体恢复沟通的时间；暂停不是消失，回来处理才是完整流程。" }
       : { title: "把修复能力用在具体行为上", text: "复盘时分别说事实、感受、影响和下一次调整，避免把一次失误概括成整个人。" };
-    const items = [...topThree, relationshipTip, repairTip];
+    const roleTip = result.scores.D > result.scores.S + 1.5
+      ? { title: "最有效的靠近方式", text: "给你真实反馈和清晰边界，同时允许你承担方向；一味顺从反而会让你失去判断依据。" }
+      : result.scores.S > result.scores.D + 1.5
+        ? { title: "最有效的靠近方式", text: "用稳定行动建立可信度，再给出清楚、可拒绝的邀请；你需要的是可靠领导，不是替你越界。" }
+        : { title: "最有效的靠近方式", text: "先确认当下谁更想掌舵，不把一次角色选择当成永久身份；可切换本身就是你的重要自由。" };
+    const items = [...topThree, roleTip, relationshipTip, repairTip];
     $("#insights").innerHTML = items.map((item) => `
       <div class="insight"><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.text)}</p></div>`).join("");
   }
 
   function formatResultText(result) {
-    const top = result.top.slice(0, 5).map(([key, score]) => `${DIMENSIONS[key][0]} ${score}`).join("、");
-    return `我的关系罗盘：${result.code}｜${result.name}\n${result.summary}\n突出维度：${top}\n提示：这是自我探索结果，不构成心理或医疗诊断。`;
+    const top = result.top.slice(0, 5).map(([key, score]) => `${DIMENSIONS[key][0]} ${score.toFixed(1)}`).join("、");
+    return `我的关系罗盘：${result.code}｜${result.name}\n${result.tagline}\n${result.summary}\n突出维度（10分制）：${top}\n提示：这是自我探索结果，不构成心理或医疗诊断。`;
+  }
+
+  function buildTagline(role, structure, tone, connection) {
+    const openings = { L: "你不是只想掌控，你想成为值得被交付的人。", F: "你不是没有主见，你只愿意把控制交给真正可靠的人。", X: "你拒绝被一个位置定义，关系与情境才决定你如何出现。", C: "你不追逐固定标签，更相信两个人共同写下规则。" };
+    const endings = structure === "S" ? "清晰让你敢于深入。" : structure === "O" ? "自由让你保持鲜活。" : "合适的弹性比标准答案更重要。";
+    const heart = tone === "G" ? "照护是你确认关系的语言" : tone === "P" ? "张力和玩心是你确认火花的语言" : "你能在温柔与张力之间找到平衡";
+    const bond = connection === "B" ? "，而稳定回应决定你是否真正安心。" : connection === "I" ? "，但自主空间决定你能否长久呼吸。" : "，同时你需要亲近与独处都被尊重。";
+    return `${openings[role]} ${endings} ${heart}${bond}`;
+  }
+
+  function buildPortrait({ role, structure, tone, connection, scores, strongest }) {
+    const roleText = role === "L" ? "你倾向通过提出方向、承担责任来建立信任" : role === "F" ? "你会在确认对方可靠后，以交付和回应进入更深的状态" : role === "X" ? "你的角色具有流动性：掌控或交付取决于对象、氛围和当下需要" : "你更看重协作，不急于把任何一方固定成主导或跟随";
+    const structureText = structure === "S" ? "明确规则并不会削弱情趣，反而让你有底气触碰更深、更羞耻或更强烈的欲望" : structure === "O" ? "你需要探索空间和现场感，过密的规定可能让体验失去生命力" : "你能使用规则，也能临场调整，关键是变化必须仍在双方知情范围内";
+    const tension = scores.AU < 4.5 && scores.RS > 6.5 ? "你可能比自己承认的更在意回应；最需要练习的不是减少依赖，而是把需要说清，同时保留自己的生活重心。" : scores.AU > 7 && scores.RS < 5.5 ? "你擅长独立恢复，但别让‘我能自己处理’变成拒绝被理解；适度说明状态，会让自由更安全。" : "你既需要连接，也需要不被吞没；提前说明联系频率和恢复空间，比事后猜测更适合你。";
+    return `${roleText}。${structureText}。你目前最突出的三项倾向是${strongest.join("、")}；它们描述的是你如何获得投入感，不等于你对任何具体行为的同意。${tension}`;
   }
 
   function showView(id) {

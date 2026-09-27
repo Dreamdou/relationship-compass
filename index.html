@@ -24,9 +24,9 @@
       <div class="hero-copy">
         <p class="eyebrow">成人关系偏好 · 沟通 · 边界</p>
         <h1 id="welcome-title">看见你的关系模式，<br>也看见彼此的边界。</h1>
-        <p class="lead">这不是诊断，也不是给人贴标签。它用 104 道陈述，帮助你梳理角色倾向、互动结构、情绪沟通、边界与修复方式。</p>
+        <p class="lead">这不是诊断，也不是给人贴标签。104 道混合题会区分你的幻想、现实倾向、行为习惯与边界，帮助你梳理角色、欲望、亲密模式和沟通方式。</p>
         <div class="hero-stats" aria-label="测评信息">
-          <div><strong>104</strong><span>道陈述</span></div>
+          <div><strong>104</strong><span>道混合题</span></div>
           <div><strong>约 18</strong><span>分钟</span></div>
           <div><strong>26</strong><span>个观察维度</span></div>
         </div>
@@ -92,6 +92,7 @@
         <div>
           <p class="eyebrow">关系罗盘 · 自我探索版</p>
           <h1 id="quiz-title">请选择最接近你真实状态的答案</h1>
+          <p class="quiz-note">题目会在取舍、频率、吸引程度和现实习惯之间切换，请留意每题选项含义。</p>
         </div>
         <button id="save-exit-button" class="ghost-button" type="button">保存并退出</button>
       </div>
@@ -118,6 +119,7 @@
         <p class="eyebrow">你的关系罗盘类型</p>
         <p id="type-code" class="type-code">—</p>
         <h1 id="result-title">正在生成结果…</h1>
+        <p id="result-tagline" class="result-tagline"></p>
         <p id="result-summary" class="result-summary"></p>
         <div class="result-actions">
           <button id="copy-result-button" class="primary-button" type="button">复制结果摘要</button>
@@ -126,11 +128,15 @@
       </div>
 
       <div class="result-grid">
-        <article class="panel">
-          <div class="panel-heading"><div><p class="eyebrow">维度概览</p><h2>你的突出倾向</h2></div><span class="panel-note">0–100</span></div>
-          <div id="score-bars" class="score-bars"></div>
+        <article class="panel radar-panel">
+          <div class="panel-heading"><div><p class="eyebrow">核心轮廓</p><h2>你的关系雷达</h2></div><span class="panel-note">0–10</span></div>
+          <div id="radar-chart" class="radar-chart"></div>
         </article>
         <article class="panel">
+          <div class="panel-heading"><div><p class="eyebrow">维度概览</p><h2>你的突出倾向</h2></div><span class="panel-note">0–10</span></div>
+          <div id="score-bars" class="score-bars"></div>
+        </article>
+        <article class="panel full-width-panel">
           <p class="eyebrow">个性化解读</p>
           <h2>更适合你的互动方式</h2>
           <div id="insights" class="insights"></div>

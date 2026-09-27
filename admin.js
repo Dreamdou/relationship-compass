@@ -125,8 +125,8 @@
         <div><span>联系方式类型</span>${escapeHtml(item.contact_kind)}</div>
         <div><span>联系方式</span>${escapeHtml(item.contact_value)}</div>
       </div>
-      <h3>26 个维度分数</h3>
-      <div class="detail-scores">${scores.map(([key, value]) => `<div class="detail-score">${escapeHtml(key)}<strong>${value}</strong></div>`).join("")}</div>
+      <h3>26 个维度分数（10 分制）</h3>
+      <div class="detail-scores">${scores.map(([key, value]) => `<div class="detail-score">${escapeHtml(key)}<strong>${formatScore(value)}</strong></div>`).join("")}</div>
       <details><summary>查看原始答案</summary><pre>${escapeHtml(JSON.stringify(item.answers, null, 2))}</pre></details>`;
     $("#response-dialog").showModal();
   }
@@ -150,6 +150,13 @@
 
   function scoreKeys() {
     return ["D", "S", "X", "ST", "SV", "CG", "CR", "BR", "BT", "TG", "TR", "BD", "PV", "PET", "AC", "NV", "TP", "CD", "EA", "CF", "AU", "RS", "PB", "EX", "PS", "RF"];
+  }
+
+  function formatScore(value) {
+    const numeric = Number(value);
+    if (!Number.isFinite(numeric)) return "—";
+    const normalized = numeric > 10 ? numeric / 10 : numeric;
+    return `${normalized.toFixed(1)} / 10`;
   }
 
   function copySurveyId() {

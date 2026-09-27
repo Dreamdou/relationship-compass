@@ -111,6 +111,8 @@ button:focus-visible, input:focus-visible, a:focus-visible { outline: 3px solid 
 .type-code { display: inline-grid; place-items: center; min-width: 86px; height: 44px; margin: 4px 0 18px; padding: 0 18px; color: white; background: var(--forest); border-radius: 999px; font-family: Georgia, serif; font-weight: 800; letter-spacing: .12em; }
 .result-hero h1 { font-size: clamp(2.2rem, 5vw, 4.2rem); }
 .result-summary { max-width: 680px; margin: 22px auto; color: var(--muted); font-size: 1.08rem; }
+.result-tagline { max-width: 720px; margin: 20px auto 0; font-family: "Songti SC", "STSong", Georgia, serif; font-size: clamp(1.22rem, 2.5vw, 1.65rem); line-height: 1.6; color: var(--ink); }
+.quiz-note { margin: 10px 0 0; color: var(--muted); font-size: .92rem; }
 .result-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
 .result-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 20px; }
 .panel { padding: clamp(24px, 4vw, 36px); border-radius: var(--radius); }
@@ -121,6 +123,14 @@ button:focus-visible, input:focus-visible, a:focus-visible { outline: 3px solid 
 .score-row-top strong { color: var(--forest); }
 .score-track { height: 9px; overflow: hidden; background: #e5e6df; border-radius: 999px; }
 .score-fill { height: 100%; background: linear-gradient(90deg, var(--forest), #72b4a2); border-radius: inherit; }
+.full-width-panel { grid-column: 1 / -1; }
+.radar-chart { display: grid; place-items: center; min-height: 380px; }
+.radar-chart svg { width: min(100%, 430px); overflow: visible; }
+.radar-grid polygon, .radar-grid line { fill: none; stroke: #d8ddd6; stroke-width: 1; }
+.radar-area { fill: rgba(18, 90, 80, .24); stroke: var(--forest); stroke-width: 2.5; stroke-linejoin: round; }
+.radar-labels text { fill: var(--ink); font-size: 11px; font-weight: 650; }
+.radar-labels tspan { fill: var(--forest); font-size: 10px; font-weight: 750; }
+.question-detail { display: block; margin-top: 10px; color: var(--forest); font-size: .92rem; font-weight: 650; line-height: 1.55; }
 .insights { display: grid; gap: 18px; margin-top: 25px; }
 .insight { padding-left: 17px; border-left: 3px solid var(--mint); }
 .insight h3 { margin: 0 0 4px; font-size: .98rem; }
